@@ -1,0 +1,22 @@
+creationTimestamp: '2019-03-28T12:39:07.651-07:00'
+defaultService: https://www.googleapis.com/compute/alpha/projects/traffic-director-demo/global/backendServices/app-payment-next19-backend
+kind: compute#urlMap
+name: app-payment-next19-url-map
+selfLink: https://www.googleapis.com/compute/alpha/projects/traffic-director-demo/global/urlMaps/app-payment-next19-url-map
+hostRules:
+- description: ''
+  hosts:
+  - '*'
+  pathMatcher: matcher1
+pathMatchers:
+- defaultService: https://www.googleapis.com/compute/alpha/projects/traffic-director-demo/global/backendServices/app-payment-next19-backend
+  name: matcher1
+  routeRules:
+  - matchRules:
+    - prefixMatch: ''
+    routeAction:
+      weightedBackendServices:
+      - backendService: https://www.googleapis.com/compute/alpha/projects/traffic-director-demo/global/backendServices/app-payment-next19-backend
+        weight: 50
+      - backendService: https://www.googleapis.com/compute/alpha/projects/traffic-director-demo/global/backendServices/app-payment-next19-delivery-backend
+        weight: 50
